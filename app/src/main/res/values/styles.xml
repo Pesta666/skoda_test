@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Základní téma aplikace. Upravit podle potřeby. -->
+    <style name="Theme.Skoda_test" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Barvy a atributy lze přidat sem. -->
+    </style>
+
+    <!-- Pokud má projekt vlastní MaulCompose téma používající Compose, zachovat kompatibilitu. -->
+    <style name="MaulComposeSkodaFlowTheme" parent="Theme.Material3.DayNight.NoActionBar" />
+</resources>
+

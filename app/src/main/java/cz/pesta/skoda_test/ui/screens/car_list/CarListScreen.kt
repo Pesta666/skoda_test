@@ -58,7 +58,7 @@ fun CarList(cars: List<Car>, onItemClicked: (Car) -> Unit = {}) {
 
 @Composable
 fun CarItem(car: Car, onItemClicked: (Car) -> Unit) {
-    val url = car.renders.firstOrNull { render -> render.viewPoint == ViewPoint.GARAGE_L }?.url
+    val url = car.renders.firstOrNull { render -> render.viewPoint == ViewPoint.MAIN }?.url
     MaulCard(
         onClick = { onItemClicked(car) },
         modifier = Modifier

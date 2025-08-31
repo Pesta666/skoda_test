@@ -17,7 +17,8 @@ import coil3.compose.AsyncImage
 import cz.pesta.skoda_test.data.model.Car
 import cz.pesta.skoda_test.data.model.ViewPoint
 import cz.pesta.skoda_test.ui.preview.previewCars
-import vwg.skoda.maulcompose.lib.components.MaulListItem
+import vwg.skoda.maulcompose.lib.components.MaulLazyList
+import vwg.skoda.maulcompose.lib.components.MaulListItemData
 import vwg.skoda.maulcompose.lib.components.MaulText
 import vwg.skoda.maulcompose.lib.foundation.MaulTheme
 
@@ -63,6 +64,7 @@ fun CarDetail(car: Car) {
                 car.engine.type
             }
 
+
             Column {
                 if (url != null) {
                     AsyncImage(
@@ -74,15 +76,15 @@ fun CarDetail(car: Car) {
                             .defaultMinSize(minHeight = 200.dp)
                     )
                 }
-
-                MaulListItem(primaryText = car.name, secondaryText = "Název vozu")
-                MaulListItem(primaryText = car.model, secondaryText = "Model")
-                MaulListItem(primaryText = car.trimLevel, secondaryText = "Stupeň výbavy")
-                MaulListItem(primaryText = car.vin, secondaryText = "VIN")
-                MaulListItem(primaryText = engineText, secondaryText = "Motor")
-                MaulListItem(
-                    primaryText = "${car.engine.powerInKW} kW",
-                    secondaryText = "Maximální výkon"
+                MaulLazyList(
+                    rows = listOf(
+                        MaulListItemData(car.name, "Název vozu"),
+                        MaulListItemData(car.model, "Model"),
+                        MaulListItemData(car.trimLevel, "Stupeň výbavy"),
+                        MaulListItemData(car.vin, "VIN"),
+                        MaulListItemData(engineText, "Motor"),
+                        MaulListItemData("${car.engine.powerInKW} kW", "Maximální výkon")
+                    )
                 )
             }
         }
